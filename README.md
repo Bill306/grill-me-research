@@ -2,95 +2,85 @@
 
 **Your thesis isn't ready until it's survived the interrogation.**
 
-Most investment mistakes don't come from bad analysis — they come from questions you never thought to ask. `/grill-me` is a Claude Code skill that plays the role of a relentless research director, walking your investment idea through a structured decision tree until every blind spot is exposed and every assumption is explicit.
+Most investment mistakes don't come from bad analysis — they come from questions you never thought to ask. This skill turns Claude into a relentless research director who walks your investment idea through a structured decision tree, one sharp question at a time, until every blind spot is exposed and every assumption is explicit.
 
-No hand-waving. No "sounds good." Just sharp questions, one at a time, each with a recommended answer to keep things moving.
-
----
+No hand-waving. No "sounds good." Just focused questions, each with a recommended answer to keep things moving.
 
 ## Why this exists
 
 Before committing capital or publishing research, the best investors pressure-test their thinking against a framework. But it's hard to grill yourself — you already believe your thesis. This skill gives you a sparring partner that:
 
-- **Won't let you skip the hard questions** — research objective, time horizon, competitive framing, risk factors
+- **Won't let you skip the hard questions** — objective, horizon, competitive framing, risk factors, all get examined
 - **Suggests answers** so you're not staring at a blank page — agree, disagree, or refine
 - **Adapts to your responses** — follows the natural flow of the conversation, not a rigid checklist
-- **Produces a clean Research Brief** at the end — ready to hand off to a team or feed into deeper analysis
+- **Does its own homework** — checks your files and context before asking you for information it can find itself
+- **Produces a clean Research Brief** at the end — a structured output ready to hand off or feed into deeper analysis
 
-It works for any asset class, any market, any language.
+Works for any asset class, any market, any language.
 
----
+## Install
 
-## Quick Start
-
-### Install
+### Claude Code
 
 ```bash
 claude install-skill https://github.com/Bill306/grill-me-research
 ```
 
-Or manually copy `SKILL.md` to `~/.claude/skills/grill-me-research/SKILL.md`.
+### Claude.ai
 
-### Use
+Download and upload `SKILL.md` via **Settings → Skills**. See [Using skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude) for details.
 
-```
-/grill-me <topic>
-```
+### Manual
 
-That's it. Topic can be anything:
+Copy the `SKILL.md` file into your Claude Code skills directory:
 
 ```
-/grill-me NVIDIA
-/grill-me China consumer recovery
-/grill-me long copper short gold
-/grill-me 腾讯
-/grill-me "is ASML a buy at 40x earnings"
+~/.claude/skills/grill-me-research/SKILL.md
 ```
 
----
+## Usage
 
-## How it works
-
-The skill asks one question at a time, navigating seven dimensions of investment analysis:
-
-| Dimension | What gets challenged |
-|---|---|
-| **Research objective** | Are you initiating, tracking, learning, validating, or auditing? |
-| **Time horizon** | 1–3 months? 6–12 months? Multi-year? Does your analysis match? |
-| **Analysis boundary** | Who are you comparing against? What geography matters? |
-| **Analysis layers** | Macro → industry → supply chain → company. Where's the edge? |
-| **Your priors** | What do you already believe? What data do you have? What's gut? |
-| **Output framing** | Buy-side or sell-side? DCF or multiples? Memo or model? |
-| **Risks & blind spots** | What's the bear case? What could you be wrong about? |
-
-The order is fluid — the skill follows your answers, not a script. It resolves dependencies between branches (e.g., time horizon affects which valuation method makes sense) before moving on.
-
----
-
-## Example session
+Just tell Claude what you want to research:
 
 ```
-> /grill-me Tesla
-
-AI: What's your research objective — initiating a position, tracking
-    an existing one, or doing a sector deep-dive?
-
-    My recommendation: Given Tesla's current inflection point around
-    autonomous driving and energy storage, I'd frame this as a
-    position initiation analysis with a 12-month horizon.
-
-You: Initiating. But I'm more interested in the energy business
-     than the cars.
-
-AI: Got it — energy focus. What's your current hypothesis on Tesla
-    Energy's revenue trajectory? Specifically, are you underwriting
-    the Megapack backlog numbers at face value, or do you have a
-    discount for execution risk?
-
-    My recommendation: ...
+I want to research NVIDIA's data center business
 ```
 
-This continues until all key branches are resolved, then produces:
+Or be as vague as you want:
+
+```
+Is copper a good trade right now?
+```
+
+The skill activates whenever Claude detects you're trying to sharpen an investment idea, prepare for an IC meeting, or stress-test a thesis.
+
+### Example session
+
+```
+You:  I want to research Tesla's energy business
+
+AI:   What's your research objective — are you initiating a position,
+      tracking an existing holding, or doing a sector deep-dive?
+
+      My recommendation: Given Tesla Energy's inflection point around
+      Megapack and utility-scale storage, I'd frame this as a position
+      initiation analysis with a 12-month horizon.
+
+You:  Initiating. More interested in energy than cars.
+
+AI:   What's your current hypothesis on Tesla Energy's revenue
+      trajectory? Are you underwriting the Megapack backlog at face
+      value, or discounting for execution risk?
+
+      My recommendation: I'd apply a 15-20% haircut to the stated
+      backlog given Tesla's history of production timeline slips,
+      and model revenue recognition against deployed GWh rather than
+      bookings.
+
+      ...
+```
+
+This continues through all relevant branches — time horizon, competitive comparisons, valuation method, risk factors — until consensus is reached. Then:
 
 ```
 ## Research Brief
@@ -106,18 +96,32 @@ This continues until all key branches are resolved, then produces:
 - Key risks / traps: Cell cost assumptions, regulatory changes to IRA, Megapack pricing pressure
 ```
 
----
+## What gets covered
+
+The skill navigates seven dimensions of investment analysis, in whatever order the conversation demands:
+
+| Dimension | What gets challenged |
+|---|---|
+| **Research objective** | Are you initiating, tracking, learning, validating, or auditing? |
+| **Time horizon** | 1–3 months? 6–12 months? Multi-year? Does your analysis match? |
+| **Analysis boundary** | Who are you comparing against? What geography matters? |
+| **Analysis layers** | Macro → industry → supply chain → company. Where's the edge? |
+| **Existing knowledge** | What do you already believe? What's data vs. gut? |
+| **Output framing** | Buy-side or sell-side? DCF or multiples? Memo or model? |
+| **Risks & blind spots** | What's the bear case? What would make you wrong? |
 
 ## Who this is for
 
 - **Analysts** sharpening a thesis before writing it up
-- **PMs** pressure-testing ideas before sizing a position
+- **Portfolio managers** pressure-testing ideas before sizing a position
 - **Students** learning how to structure investment research
 - **Solo investors** who want a second opinion before committing capital
 - **Anyone** preparing for an IC meeting, stock pitch, or research presentation
 
----
+## Skill format
+
+This skill follows the [Agent Skills specification](https://agentskills.io/specification). It consists of a single `SKILL.md` file with no additional dependencies — just install and go.
 
 ## License
 
-MIT — use it however you want.
+[MIT](LICENSE)
