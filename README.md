@@ -1,6 +1,15 @@
 # Grill Me: Investment Research
 
+**English** · [简体中文](README.zh-CN.md)
+
 **Your thesis isn't ready until it's survived the interrogation.**
+
+```mermaid
+flowchart LR
+  A[Investment idea] --> B[Focused questions]
+  B --> C[Assumptions and evidence gaps]
+  C --> D[Research Brief]
+```
 
 Most investment mistakes don't come from bad analysis — they come from questions you never thought to ask. This skill turns Claude into a relentless research director who walks your investment idea through a structured decision tree, one sharp question at a time, until every blind spot is exposed and every assumption is explicit.
 
@@ -23,7 +32,9 @@ Works for any asset class, any market, any language.
 ### Claude Code
 
 ```bash
-claude install-skill https://github.com/Bill306/grill-me-research
+git clone https://github.com/Bill306/grill-me-research.git
+mkdir -p ~/.claude/skills/grill-me-research
+cp grill-me-research/SKILL.md ~/.claude/skills/grill-me-research/SKILL.md
 ```
 
 ### Claude.ai
